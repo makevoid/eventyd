@@ -40,6 +40,7 @@ class Getter
         unless event.save
           raise EventNotSaved, "Error saving the event: #{event.inspect}"
         end
+        event.keywords.create name: query
       rescue DataObjects::IntegrityError
         print "d"
       end

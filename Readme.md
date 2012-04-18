@@ -1,6 +1,10 @@
 # Eventyd
 ### Find all FB events in your city
 
+api used:
+
+- Facebook: "https://graph.facebook.com/search?type=event&q=QUERY&..."
+- Google Maps: "https://maps.googleapis.com/maps/api/geocode/json?address=QUERY&sensor=false"
 
 ### to start:
 

@@ -9,6 +9,7 @@ class Event
   property :ends_at,    DateTime
 
   belongs_to :location
+  has n, :keywords
 
   before :create do
     self.name_url = self.name.urlize
