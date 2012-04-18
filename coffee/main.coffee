@@ -8,8 +8,7 @@ if in_event_page()
   
     event_id = $(".event").data("event")
     $.get "/events/#{event_id}/details", (data) ->
-      console.log data
-      # data = JSON.parse(data)
+      data = JSON.parse(data)
       view = ""
       view += "
   <div class='place'>place: #{data.place}</div>        

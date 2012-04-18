@@ -20,13 +20,11 @@ class Eventyd < Sinatra::Application
   end
 
   get "/" do
-    @keyword = Keyword.first name: "krakow"
     @events = all_events
     haml :index
   end
 
   get "/events" do
-    @keyword = Keyword.first name: "krakow"
     @events = all_events
     haml :index
   end

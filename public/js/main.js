@@ -13,7 +13,7 @@
       event_id = $(".event").data("event");
       return $.get("/events/" + event_id + "/details", function(data) {
         var map, mapDiv, marker, position, view;
-        console.log(data);
+        data = JSON.parse(data);
         view = "";
         if (data.place) {
           view += "  <div class='place'>place: " + data.place + "</div>          ";
