@@ -1,0 +1,9 @@
+%h1 Eventyd
+
+%form{ method: "post", action: "/events" }
+  %input{ type: "text", name: "location", value: @location }
+  %input{ type: "submit", value: "Search" }
+
+
+- @events.each do |event|
+  = haml :_event
