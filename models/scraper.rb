@@ -1,24 +1,29 @@
 class Scraper
 
-  def initialize(token)
+  def initialize(token, limit=10)
     @token = token
+    @limit = limit
   end
 
   def url(query)
-    "https://graph.facebook.com/search?q=#{query}&limit=5000&type=event&access_token=#{@token}"
+    "https://graph.facebook.com/search?q=#{query}&limit=#{@limit}&type=event&access_token=#{@token}"
   end
 
   def self.scrape(query, token)
     new(token).scrape(query)
   end
 
-  def scrape(query)
+  def get(query)
     uri = URI(url(query))
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     response = http.request(Net::HTTP::Get.new(uri.request_uri))
-    data = JSON.parse response.body
+    JSON.parse response.body
+  end
+
+  def scrape(query)
+    data = get query
     data = data["data"]
 
     events = []

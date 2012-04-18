@@ -7,7 +7,9 @@ Bundler.require :default
 #
 # mysql -u root -e "CREATE DATABASE IF NOT EXISTS eventyd_development;"
 
-DataMapper.setup :default, "mysql://root@localhost/eventyd_development"
+env = ENV["RACK_ENV"] || "development"
+
+DataMapper.setup :default, "mysql://root@localhost/eventyd_#{env}"
 
 Dir.glob("models/*.rb").each do |model|
   require "#{path}/#{model}"

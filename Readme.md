@@ -22,3 +22,14 @@ also see: /lib/getter.rb
 
 
 it's simple and useful, so join me/us!
+
+
+### specs: 
+
+create a mysql database for test env:
+
+    mysql -u root -e "CREATE DATABASE IF NOT EXISTS eventyd_test;"
+
+run specs:
+
+    rspec
