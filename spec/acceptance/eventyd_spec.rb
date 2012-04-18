@@ -9,10 +9,11 @@ describe Eventyd do
     body.should =~ /Eventyd/
   end
 
-  it "GET /events/1" do
+  it "GET /events/:id" do
     location = Location.create name: "Krakow"
-    event = location.events.create name: "RailsBerry"
-    get "/events/#{event.id}"
+    keyword = Keyword.create name: "krakow"
+    event = location.events.create name: "RailsBerry", keyword_id: keyword.id
+    get "/events/#{event.name_url}"
     body.should =~ /RailsBerry/
   end
 

@@ -4,5 +4,5 @@ class Keyword
   property :id,   Serial
   property :name, String, length: 100
 
-  belongs_to :event
+  has n, :events
 end

@@ -27,11 +27,10 @@ bundle then
 
     rackup
 
-also see: /lib/getter.rb
 
+to get datas run:
 
-it's simple and useful, so join me/us!
-
+    ruby lib/get.rb 
 
 ### specs: 
 

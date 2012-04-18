@@ -1,5 +1,5 @@
 {
-  token:  "AAACEdEose0cBAJmfiFY2LC56dQnb4k5KgD3UkhU8lblaRVqGfQocKLFCiVjCXSCA34x8wQDwYUAVoHPV2egZCG0fs5ZCqveZBJiZBBUXQeWlb1s00r0T",
+  token:  "AAACEdEose0cBAJIMnDICTmYEmV55SjzxqH2u4dQD2beck2z31eys6OP3dL4ZAfpT9xZBC1pjGYE0qnwMZCq6DnV9ubnyOhXnwiqDIy8o7zXbokNZAn4b",
   words: {
     cities:  ["krakow"],
     types:   ["conference"],

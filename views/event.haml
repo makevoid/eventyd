@@ -1,6 +1,9 @@
 .event
   %h1
-    = @event.name
+    - link_to @event.name, "https://www.facebook.com/events/#{@event.fb_id}"
+
+  .back
+    %a{ href: "/" } back to events
 
   %h2 Place
 

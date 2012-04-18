@@ -1,9 +1,16 @@
-%h1 Eventyd
+.events
 
-%form{ method: "post", action: "/events" }
-  %input{ type: "text", name: "location", value: @location }
-  %input{ type: "submit", value: "Search" }
+  - keyword_name = @keyword.name if @keyword
 
+  %h1 Eventyd
 
-- @events.each do |event|
-  = haml :_event
+  %form{ method: "post", action: "/events" }
+    %input{ type: "text", name: "location", value: keyword_name }
+    %input{ type: "submit", value: "Search" }  
+  
+  .results
+    - if @events == []
+      %p Sorry, no events found with this keyword / location.
+
+    - @events.each do |event|
+      = haml :_event, locals: { event: event }

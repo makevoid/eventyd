@@ -1,2 +1,4 @@
 .event
-  = event.name
+  - link_to event.name, "/events/#{event.name_url}"
+  \-
+  = event.starts_at.strftime("%d %b - %H:%M")

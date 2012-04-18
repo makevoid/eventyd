@@ -1,3 +1,7 @@
+path = File.expand_path "../../", __FILE__
+
+require "#{path}/lib/jsoner"
+
 class FBError < RuntimeError
   def initialize(data)
     @data = data
@@ -10,12 +14,15 @@ end
 
 class Scraper
 
+  include Jsoner
+
   def initialize(token, limit=5000)
     @token = token
     @limit = limit
   end
 
   def url(query)
+   query = CGI.escape(query)
     "https://graph.facebook.com/search?q=#{query}&limit=#{@limit}&type=event&access_token=#{@token}"
   end
 
@@ -25,11 +32,7 @@ class Scraper
 
   def get(query)
     uri = URI(url(query))
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    response = http.request(Net::HTTP::Get.new(uri.request_uri))
-    data = JSON.parse response.body
+    data = get_json(uri)
     raise FBError.new(data) if data["error"]
     data
   end

@@ -7,5 +7,4 @@ describe Geo do
     geo.send(:geo, "krakow").should == []
   end
 
-  pending "should geolocate"
 end
