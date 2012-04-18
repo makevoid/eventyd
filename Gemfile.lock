@@ -31,6 +31,7 @@ GEM
       rack-protection (~> 1.2)
       tilt (~> 1.3, >= 1.3.3)
     tilt (1.3.3)
+    voidtools (0.2.9)
 
 PLATFORMS
   ruby
@@ -45,3 +46,4 @@ DEPENDENCIES
   rspec-expectations
   rspec-mocks
   sinatra
+  voidtools

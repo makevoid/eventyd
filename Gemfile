@@ -6,6 +6,7 @@ gem "dm-migrations"
 
 gem "haml"
 
+gem "voidtools"
 
 group :test do
   gem "rspec-core"

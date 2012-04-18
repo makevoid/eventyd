@@ -1,3 +1,13 @@
+class FBError < RuntimeError
+  def initialize(data)
+    @data = data
+  end
+
+  def message
+    "Facebook Error: #{@data["error"]["message"]}\nplease check your FB token in config - you can generate another key here: https://developers.facebook.com/tools/explorer"
+  end
+end
+
 class Scraper
 
   def initialize(token, limit=5000)
@@ -19,13 +29,14 @@ class Scraper
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     response = http.request(Net::HTTP::Get.new(uri.request_uri))
-    JSON.parse response.body
+    data = JSON.parse response.body
+    raise FBError.new(data) if data["error"]
+    data
   end
 
   def scrape(query)
     data = get query
     data = data["data"]
-
     events = []
     data.each do |event|
       events << {

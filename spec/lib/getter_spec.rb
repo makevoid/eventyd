@@ -12,8 +12,7 @@ describe Getter do
   context "with network" do
     it "should get events from FB" do
       getter.get
-
-      p Event.all
+      Event.all.should_not == []
     end
   end
 

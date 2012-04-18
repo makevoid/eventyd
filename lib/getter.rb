@@ -5,6 +5,10 @@ require "json"
 
 require "#{path}/config/env"
 
+class EventNotSaved < RuntimeError
+
+end
+
 class Getter
 
   attr_reader :configs, :words
@@ -31,7 +35,11 @@ class Getter
     events = Scraper.scrape query, @token, limit
     events.each do |event|
       begin
-        Event.create event
+        location = Location.none
+        event = location.events.new event
+        unless event.save
+          raise EventNotSaved, "Error saving the event: #{event.inspect}"
+        end
       rescue DataObjects::IntegrityError
         print "d"
       end
