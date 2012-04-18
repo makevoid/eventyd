@@ -36,11 +36,12 @@ class Getter
     events.each do |event|
       begin
         location = Location.none
-        event = location.events.new event
+        keyword = Keyword.first name: query
+        keyword = Keyword.create name: query unless keyword
+        event = location.events.new event.merge(keyword_id: keyword.id)
         unless event.save
-          raise EventNotSaved, "Error saving the event: #{event.inspect}"
+          raise EventNotSaved, "Error saving the event: #{event.errors.inspect}"
         end
-        event.keywords.create name: query
       rescue DataObjects::IntegrityError
         print "d"
       end
