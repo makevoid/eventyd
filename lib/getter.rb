@@ -27,7 +27,8 @@ class Getter
   end
 
   def scrape(query)
-    events = Scraper.scrape query, @token
+    limit = 10 if ENV["RACK_ENV"] == "test"
+    events = Scraper.scrape query, @token, limit
     events.each do |event|
       begin
         Event.create event

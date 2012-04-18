@@ -3,6 +3,8 @@ path = File.expand_path "../../", __FILE__
 require 'bundler/setup'
 Bundler.require :default
 
+require "#{path}/lib/ruby_exts"
+
 # setup:
 #
 # mysql -u root -e "CREATE DATABASE IF NOT EXISTS eventyd_development;"

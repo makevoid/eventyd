@@ -15,8 +15,13 @@ class Eventyd < Sinatra::Application
     haml :index
   end
 
-  post "/events" do
+  get "/events" do
     haml :index
+  end
+
+  get "/events/:id" do |id|
+    @event = Event.get id
+    haml :event
   end
 end
 

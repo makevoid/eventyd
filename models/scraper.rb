@@ -1,6 +1,6 @@
 class Scraper
 
-  def initialize(token, limit=10)
+  def initialize(token, limit=5000)
     @token = token
     @limit = limit
   end
@@ -9,8 +9,8 @@ class Scraper
     "https://graph.facebook.com/search?q=#{query}&limit=#{@limit}&type=event&access_token=#{@token}"
   end
 
-  def self.scrape(query, token)
-    new(token).scrape(query)
+  def self.scrape(query, token, limit)
+    new(token, limit).scrape(query)
   end
 
   def get(query)
