@@ -18,9 +18,18 @@ def scrape(query)
   end
 end
 
-cities = ["firenze", "roma", "bologna", "milano", "napoli"]
-types = ["concerto", "mostra", "proiezione", "film", "festa", "festival", "cinema"]
-places = ["parco", "museo", "galleria", "teatro", "campo", "chiesa", "piazza"]
+# english
+
+cities = ["krakow", "amsterdam", "firenze", "roma"]
+types = ["conference", "concert", "event", "party", "afterparty"]
+places = ["park", "museum", "office", "square"]
+
+# italian
+
+# cities = ["krakow", "firenze", "roma", "bologna", "milano", "napoli"]
+# types = ["conference", "concerto", "mostra", "proiezione", "film", "festa", "festival", "cinema"]
+# places = ["parco", "museo", "galleria", "teatro", "campo", "chiesa", "piazza"]
+
 
 DataMapper.auto_migrate!
 

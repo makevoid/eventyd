@@ -11,7 +11,7 @@ class Eventyd < Sinatra::Application
   end
 
   get "/" do
-    @location = "Firenze"
+    @location = "Krakow"
     haml :index
   end
 
