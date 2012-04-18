@@ -2,8 +2,6 @@
 
   - keyword_name = @keyword.name if @keyword
 
-  %h1 Eventyd
-
   %form{ method: "post", action: "/events" }
     %input{ type: "text", name: "location", value: keyword_name }
     %input{ type: "submit", value: "Search" }  

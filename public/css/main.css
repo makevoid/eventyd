@@ -1,0 +1,16 @@
+body {
+  background: #eeeeee;
+  font-family: Georgia; }
+
+h1 {
+  color: #ee0000; }
+
+a {
+  color: #ee0000; }
+
+a:hover {
+  color: #ee0000; }
+
+.event span {
+  font-size: 0.85em;
+  font-family: monospace; }

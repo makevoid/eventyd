@@ -1,4 +1,5 @@
 .event
+  %span.time
+    = event.starts_at.strftime("%d %b - %H:%M")
+
   - link_to event.name, "/events/#{event.name_url}"
-  \-
-  = event.starts_at.strftime("%d %b - %H:%M")

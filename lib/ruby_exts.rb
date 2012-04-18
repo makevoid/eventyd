@@ -1,6 +1,13 @@
+# encoding: utf-8
+
 class String
   def urlize
     # TODO: remove special chars
-    self.downcase.split(/\s+/).join("_").gsub(/\W+/i, '').gsub(/_+/, '_').gsub(/^_|_$/, '')
+    self.downcase.split(/\s+/).join("_").remove_accents.gsub(/\W+/i, '').gsub(/_+/, '_').gsub(/^_|_$/, '')
+  end
+
+  def remove_accents
+    self.gsub(/ò|ó/, 'o')
+    # TODO: etc
   end
 end

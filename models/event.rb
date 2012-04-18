@@ -26,4 +26,17 @@ class Event
     all(limit: LIMIT)
   end
 
+  # TODO: done like this (ajax) for hackaton, later save them in the database
+
+  def details
+    @details.to_json
+  end
+
+  include Jsoner
+
+  def fill_details
+    uri = URI.parse "https://graph.facebook.com/#{self.fb_id}"
+    get_json(uri)
+  end
+
 end
