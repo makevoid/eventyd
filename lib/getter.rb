@@ -1,8 +1,5 @@
 path = File.expand_path "../../", __FILE__
 
-require 'net/https'
-require "json"
-
 require "#{path}/config/env"
 
 class EventNotSaved < RuntimeError

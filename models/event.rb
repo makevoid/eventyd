@@ -1,3 +1,7 @@
+path = File.expand_path "../../", __FILE__
+
+require "#{path}/lib/jsoner"
+
 class Event
   include DataMapper::Resource
 
@@ -36,7 +40,21 @@ class Event
 
   def fill_details
     uri = URI.parse "https://graph.facebook.com/#{self.fb_id}"
-    get_json(uri)
+    details = get_json(uri)
+    @details = {}
+    @details[:name] = self.name
+    @details[:description] = details["description"]
+    @details[:updated_at] = details["updated_time"]
+    @details[:owner] = details["owner"]["name"] if details["owner"]
+    @details[:place] = details["location"]
+    if details["venue"]
+      @details[:venue_id] = details["venue"]["id"]
+      @details[:lat] = details["venue"]["latitude"]
+      @details[:lng] = details["venue"]["longitude"]
+    end
+    @details
+  rescue JSON::ParserError
+    @details = {}
   end
 
 end

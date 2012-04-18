@@ -1,3 +1,7 @@
+
+require 'net/https'
+require "json"
+
 module Jsoner
   def get_json(uri)
     http = Net::HTTP.new(uri.host, uri.port)
