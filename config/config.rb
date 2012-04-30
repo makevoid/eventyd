@@ -1,8 +1,9 @@
 {
-  token:  "AAACEdEose0cBAOPOpj9A2XXX8DgSsQOrSgUE5DwGeVfRuzeZCxFyHXpApM2XWZAaeOH0fcfsQ2ozS1lrVTfSZBdb6oixE6QL9eRujrMTYIQGZBmCepii",
+  token:  "AAACEdEose0cBAHZCiEkpKq9C4TxXbsQep6OjgRCyZACdopookMZAZAvXyh53EHrRwKCU4gnb5ZAUPcsFdMYpQQbNU21eSKyUl9cjgZAA9sTqPdhZCX9UZBKZA",
   words: {
-    cities:  ["krakow", "cracow", "kraków", "amsterdam", "firenze", "roma"],
-    types:   ["conference", "concert", "event", "party", "afterparty", "plac", "układać", "biuro", "koncertowa", "bingo", "koncert", "fest", "game"],
-    places:  ["park", "museum", "office", "square"],
+    cities:  ["firenze"],
+    types: [],
+    # types:   ["party", "maggio", "icche", "firme", "alienation", "goa", "serata", "raccolta", "festival", "festa", "birra", "camping"],
+    places:  [],
   }
 }

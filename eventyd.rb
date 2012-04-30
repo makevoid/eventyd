@@ -15,17 +15,24 @@ class Eventyd < Sinatra::Application
 
   LIMIT = 30
 
-  def all_events
-    Event.future.limited
+  def days_week
+    @days = (Date.today..(Date.today+7)).to_a
   end
 
+  def all_events
+    days_week
+    @events = Event.future.limited
+  end
+
+  # events
+
   get "/" do
-    @events = all_events
+    all_events
     haml :index
   end
 
   get "/events" do
-    @events = all_events
+    all_events
     haml :index
   end
 
@@ -33,6 +40,7 @@ class Eventyd < Sinatra::Application
 
   post "/events" do
     @keyword = Keyword.first :name.like => params[:location]
+    days_week
     @events = if @keyword
       @keyword.events.future.limited
     else
@@ -50,11 +58,19 @@ class Eventyd < Sinatra::Application
     @event.details
   end
 
+  get "/events/coords/:lat/:lng" do |lat, lng|
+    @events = Event.search(lat.to_f, lng.to_f)
+    content_type :json
+    @events.map{ |event| event.attributes_public }.to_json
+  end
+
   get "/events/*" do |id|
     @event = Event.first name_url: id
     halt 404, "Not Found" unless @event
     haml :event
   end
+
+
 
 
 end

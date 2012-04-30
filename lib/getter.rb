@@ -32,10 +32,9 @@ class Getter
     events = Scraper.scrape query, @token, limit
     events.each do |event|
       begin
-        location = Location.none
         keyword = Keyword.first name: query
         keyword = Keyword.create name: query unless keyword
-        event = location.events.new event.merge(keyword_id: keyword.id)
+        event = Event.new event.merge(keyword_id: keyword.id)
         unless event.save
           raise EventNotSaved, "Error saving the event: #{event.errors.inspect}"
         end

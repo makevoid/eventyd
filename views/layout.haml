@@ -1,13 +1,23 @@
 %html
   %head
-    %title Eventyd
+    %title EventsApp
     %link{ rel: "stylesheet", href: "/css/main.css" }
+    %script{ src: "/js/vendor/underscore.js", type: "text/javascript" }
     %script{ src: "/js/vendor/zepto.js", type: "text/javascript" }
+    %script{ src: "/js/vendor/ember.js", type: "text/javascript" }
     %script{ src: "https://maps.googleapis.com/maps/api/js?sensor=false", type: "text/javascript" }
     
     %script{ src: "/js/main.js", type: "text/javascript" }
-  %body
+  %body    
+    #gmap
     #container
-      %h1 Eventyd
+      %header
+        %h1 EventsApp
+        - keyword_name = @keyword.name if @keyword
+
+        %form.search{ method: "post", action: "/events" }
+          %input{ type: "text", name: "location", value: keyword_name }
+          %input{ type: "submit", value: "Search" }  
+
       
       %section.content= yield

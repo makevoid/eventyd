@@ -3,6 +3,7 @@ path = File.expand_path "../../", __FILE__
 require 'bundler/setup'
 Bundler.require :default
 
+require "date"
 require "#{path}/lib/ruby_exts"
 
 # setup:

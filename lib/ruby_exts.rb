@@ -11,3 +11,9 @@ class String
     # TODO: etc
   end
 end
+
+class Date
+  def to_s_month
+    strftime("%d %B")
+  end
+end

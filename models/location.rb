@@ -3,17 +3,24 @@ class Location
 
   property :id,         Serial
   property :name,       String,   length: 255
-  property :lat,       Float
-  property :lng,       Float
+  property :lat,        Float
+  property :lng,        Float
+  property :city,       String,   length: 255
 
   has n, :events
 
   before :create do
-    self.name = self.name.capitalize
+    self.name = self.name.capitalize if self.name
   end
 
-  def self.none
-    @@none ||= Location.first(name: "none") || Location.create(name: "none")
+  RANGE_DEFAULT = 2.0
+
+  def self.search(lat, lng, range=Location::RANGE_DEFAULT)
+    all :lat.lt => lat+range, :lat.gt => lat-range, :lng.lt => lng+range, :lng.gt => lng-range
+  end
+
+  def attributes_public
+    attributes
   end
 
 end

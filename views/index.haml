@@ -1,14 +1,11 @@
 .events
-
-  - keyword_name = @keyword.name if @keyword
-
-  %form{ method: "post", action: "/events" }
-    %input{ type: "text", name: "location", value: keyword_name }
-    %input{ type: "submit", value: "Search" }  
-  
   .results
     - if @events == []
       %p Sorry, no events found with this keyword / location.
-
-    - @events.each do |event|
-      = haml :_event, locals: { event: event }
+    - else
+      - @days.each do |day|
+        - events = @events.day(day)
+        - unless events == []
+          .day= day.to_s_month
+          - events.each do |event|
+            = haml :_event, locals: { event: event }

@@ -1,8 +1,8 @@
 {
-  token:  "AAAEvWkjm0wQBAEQNGG4dGYiElFVcpxPMorK5HnFGzEZC28RoncEPwzipa1QnUWdvMwZApR1wpTnIc3G8IPPtfuNIMOW8IHGVC3lr2atUZATFqd5z0Y6",
+  token:  "AAACEdEose0cBALcfWqkRFJNWPMZCu9Kw3ybY2eTFqqsuIOQKOuDBBbIqvJaqEyxOzQEPw8JDMkUMrPc59hVIvPNxvehjROkkM1WEa9TPzkIv01It5",
   words: {
-    cities:  ["krakow", "firenze", "roma", "bologna", "milano", "napoli"],
-    types:   ["conference", "concerto", "mostra", "proiezione", "film", "festa", "festival", "cinema"],
-    places:  ["parco", "museo", "galleria", "teatro", "campo", "chiesa", "piazza"],
+    cities:  ["firenze", "roma", "bologna", "milano", "napoli", "krakow"],
+    types:   ["conference",  "conferenza", "concerto", "mostra", "proiezione", "film", "festa", "festival", "cinema", "universita", "palazzo", "dj set", "djset", "aperitivo", "live", "music", "musica", "free entry", "karaoke", "party", "jam", "jam session", "notte", "giorno", "mattina", "pomeriggio", "sera", "giornata", "firme", "firmare", "guest", "scampagnata", "mostra", "inaugurazione", "raduno", "the", "club", "metal", "drum and bass", "dubstep", "lirica", "canto", "disco", "trash", "anni", "vernissage", "birra", "vino", "scampagnata", "reggae", "bici", "biciclettata", "corsa" ], # scampagnata roma
+    places:  ["parco", "museo", "galleria", "teatro", "campo", "chiesa", "piazza", "ufficio", "sede", "auditorium", "sala prove", "polo"],
   }
 }

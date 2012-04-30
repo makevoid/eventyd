@@ -1,14 +1,42 @@
-$main: #E00
+$main:    #E00
+$bg:      rgba(255, 255, 255, 0.75)
+$bg_dark: rgba(220, 220, 220, 0.75)
+
+$width: 75%
+
+$header: 24px
+
+* 
+  padding: 0
+  margin: 0
+  
+* 
+  box-sizing: border-box
 
 html, body
   background: #eee
   //background: -webkit-linear-gradient(#eee, #aaa)
   font-family: Georgia
   height: 100%
+  font-size: 90%
+  padding: 0
+  margin: 0
+
+header  
+  background: $bg
+  padding: 1px 2%
+  height: $header
+  width: $width 0.1%
   
   
 h1 
   color: $main
+  display: inline
+  font-size: 1.5em
+  
+form.search
+  margin: 0 0 0 3%
+  display: inline
 
 a
   color: $main
@@ -21,8 +49,12 @@ input
   font-size: 1.05em
   
 .event
-  span
-    font-size: 0.85em
+  white-space: nowrap
+  text-overflow: ellipsis
+  overflow: hidden
+  .time
+    font-size: 0.92em
+    font-weight: bold
     font-family: monospace
   .desc
     font-size: 0.85em
@@ -32,13 +64,57 @@ input
 .details
   margin: 10px 0
 
+  
 #gmap
+  position: absolute
+  height: 100%
+  width: 100%
+  z-index: 1
+  
+#container
+  position: relative
+  z-index: 2
+  
+  
+.events
+  width: 100% - $width
+  background: $bg
+  float: right
+  padding: 0 0.7%
+  overflow: auto
+  margin: -$header 0 0 0
+  .day
+    padding: 3px 1%
+    margin: 10px 0 0 0
+    background: $bg_dark
+  .day:first-child
+    margin: 0
+  .results
+    padding: 10px 0 
+  
+
+.location
+  color: $main
+  font-size: 1.2em
+  font-weight: bold
+  font-family: Verdana
+  
+.starts_at
+  font-weight: bold
+  font-size: 1.3em
+  
+.event #gmap
+  position: block
   height: 400px
   width: 400px
   float: left
   margin: 10px 2%
   
 #container
-  width: 92%
   margin: 0 auto 40px
   
+  
+#gmap div div div div div div
+  border-radius: 12px
+#gmap div div div div div div div
+  border-radius: 0

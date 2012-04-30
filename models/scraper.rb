@@ -23,7 +23,7 @@ class Scraper
 
   def url(query)
    query = CGI.escape(query)
-    "https://graph.facebook.com/search?q=#{query}&limit=#{@limit}&type=event&access_token=#{@token}"
+    "https://graph.facebook.com/search?type=event&q=#{query}&limit=#{@limit}&access_token=#{@token}"
   end
 
   def self.scrape(query, token, limit)
